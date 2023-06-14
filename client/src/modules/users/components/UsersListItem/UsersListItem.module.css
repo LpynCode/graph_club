@@ -1,0 +1,14 @@
+.card {
+    display: grid;
+    grid-template-columns: 80px auto;
+    gap:10px;
+    padding: 20px;
+}
+
+.avatar {
+    align-self: center;
+}
+
+.user_info{
+    margin:10px;
+}

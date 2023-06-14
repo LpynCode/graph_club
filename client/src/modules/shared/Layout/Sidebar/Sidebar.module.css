@@ -1,0 +1,14 @@
+.sidebar{
+    display: grid;
+    align-content: flex-start;
+    gap:10px;
+    padding: 10px;
+}
+
+.sidebar .active {
+    color: var(--white) !important;
+    background: var(--primary);
+}
+
+
+

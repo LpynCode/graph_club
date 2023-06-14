@@ -1,0 +1,93 @@
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["clientExtensions"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model UserModel {
+  id           Int            @id @default(autoincrement())
+  email        String         @unique
+  displayName  String
+  password     String
+  role         Role           @default(USER)
+  posts        PostModel[]
+  photos       PhotosModel[]
+  playlists    PlaylistModel[]
+  audios       AudiosModel[]
+  avatar       AvatarModel?
+
+
+  @@map("users")
+}
+
+model AvatarModel {
+  id           Int            @id @default(autoincrement())
+  user         UserModel      @relation(fields:[userId], references: [id])
+  userId       Int            @unique
+  photo        PhotosModel    @relation(fields:[photoId], references: [id], onDelete: Cascade)
+  photoId      Int            @unique
+  createdAt    DateTime       @default(now())
+
+  @@map("avatars")
+}
+
+model PostModel {
+  id           Int          @id  @default(autoincrement())
+  title        String
+  description  String?
+  createdAt    DateTime     @default(now())
+  author       UserModel    @relation(fields: [authorId], references: [id])
+  authorId     Int
+  photo        PhotosModel? @relation(fields:[photoId], references: [id], onDelete: SetNull)
+  photoId      Int?         @unique
+
+  @@map("posts")
+}
+
+model PhotosModel {
+  id           Int            @id   @default(autoincrement())
+  link         String
+  author       UserModel      @relation(fields: [authorId], references: [id])
+  authorId     Int
+  createdAt    DateTime       @default(now())
+  avatar       AvatarModel?
+  post         PostModel?
+
+  @@map("photos")
+}
+
+model PlaylistModel {
+  id           Int            @id   @default(autoincrement())
+  name         String
+  description  String?
+  author       UserModel      @relation(fields:[authorId], references: [id])
+  authorId     Int
+  audios       AudiosModel[]
+
+  @@map("playlists")
+}
+
+model AudiosModel {
+  id           Int            @id   @default(autoincrement())
+  link         String
+  name         String
+  author       UserModel      @relation(fields:[authorId], references: [id])
+  authorId     Int
+  playlist     PlaylistModel  @relation(fields:[playlistId], references: [id])
+  playlistId   Int
+
+  @@map("audios")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+
+

@@ -1,0 +1,24 @@
+.layout{
+	display: grid;
+	background: var(--gray);
+	align-items: center;
+	border-radius: 10px;
+	border: 1px solid var(--gray-light);
+	gap:30px;
+	padding: 10px 30px 100px 20px;
+	grid-template-columns: 1fr 500px;
+	grid-template-rows: 1fr 2fr;
+}
+
+.layout h2{
+	grid-column-start: 1;
+	grid-column-end: 4;
+}
+
+.main{
+	display: grid;
+	height: 100vh;
+	align-content: center;
+	justify-content: center;
+	text-align: center;
+}

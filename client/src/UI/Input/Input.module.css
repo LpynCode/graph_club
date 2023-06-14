@@ -1,0 +1,40 @@
+.input {
+	padding: 7px 15px;
+	width: 100%;
+	color: var(--white);
+	border: none;
+	border-radius: 5px;
+	outline-color: var(--primary);
+	background: var(--gray-dark);
+	box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+	font-family: var(--font-family);
+	font-size: 16px;
+	line-height: 22px;
+}
+
+.input:-webkit-autofill
+{
+	border: 0;
+	-webkit-text-fill-color: #FFF;
+	transition: background-color 5000s ease-in-out 0s;
+}
+
+.input::placeholder {
+	color: var(--gray-light);
+}
+
+.error {
+	border: 1px solid var(--red);
+}
+
+.inputWrapper {
+	position: relative;
+}
+
+.errorMessage {
+	font-size: 13px;
+	position: absolute;
+	bottom: -15px;
+	left: 0;
+	color: var(--red);
+}
