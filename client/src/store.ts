@@ -2,11 +2,15 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import authReducer from './modules/auth/authSlice';
 import usersReducer from './modules/users/usersSlice';
+import audiosReducer from './modules/audios/audiosSlice'
+import playerReducer from "./modules/audios/playerSlice";
 
 export const store = configureStore({
     reducer: {
         auth: authReducer,
-        users: usersReducer
+        users: usersReducer,
+        audios: audiosReducer,
+        player: playerReducer
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

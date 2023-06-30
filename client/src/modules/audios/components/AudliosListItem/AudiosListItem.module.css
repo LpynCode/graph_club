@@ -1,0 +1,52 @@
+
+.card {
+	display: grid;
+	height: 50px;
+	background: var(--gray);
+	border-radius: 10px;
+	align-items: center;
+	color: var(--gray-light);
+	grid-template-columns: 1fr auto;
+	gap:3px;
+	padding: 0 15px;
+	transition: all 0.5s;
+}
+
+.active {
+	background: var(--gray-hover);
+	color: var(--white);
+}
+
+.card:hover {
+	background: var(--gray-hover);
+	cursor: pointer;
+	position: relative;
+}
+
+.btn {
+	display: flex;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.btn img {
+	opacity: 0.3;
+	width: 30px;
+	transition: transform 0.5s;
+}
+
+.btn:hover img {
+	opacity: 1;
+}
+
+.delete_btn img {
+	transform: rotate(135deg);
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+}
+

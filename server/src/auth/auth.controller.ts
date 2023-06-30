@@ -11,10 +11,14 @@ import { NextFunction, Request, Response } from 'express';
 import { HttpError } from '../errors/http.error';
 import { ValidateMiddleware } from '../middlewares/validate.middleware';
 import { JwtVerifyDto } from './dtos/jwt.verify.dto';
+import { AuthMiddleware } from '../middlewares/auth.middleware';
 
 @injectable()
 export class AuthController extends BaseController implements IAuthController {
-	constructor(@inject(TYPES.AuthService) private authService: IAuthService) {
+	constructor(
+		@inject(TYPES.AuthService) private authService: IAuthService,
+		@inject(TYPES.AuthMiddleware) private authMiddleware: AuthMiddleware,
+	) {
 		super();
 		this.bindRoutes([
 			{
@@ -32,8 +36,9 @@ export class AuthController extends BaseController implements IAuthController {
 			{
 				path: '/verifyToken',
 				func: this.verifyToken,
-				method: 'post'
-			}
+				method: 'post',
+				middlewares: [this.authMiddleware, new ValidateMiddleware(JwtVerifyDto)],
+			},
 		]);
 	}
 
@@ -43,21 +48,24 @@ export class AuthController extends BaseController implements IAuthController {
 		next: NextFunction,
 	): Promise<void> {
 		try {
-			const token = await this.authService.login(body);
-			if (!token) {
+			const result = await this.authService.login(body);
+			if (!result) {
 				return next(new HttpError(422, 'Неверный логин или пароль'));
 			}
-			this.ok(res, token);
+			this.ok(res, result);
 		} catch (e) {
 			return next(e);
 		}
 	}
 
-	async verifyToken({body}: Request<{}, {}, JwtVerifyDto>, res: Response, next: NextFunction): Promise<void> {
-		
-		try{
-			this.ok(res, this.authService.verifyToken(body.token));
-		} catch(e) {
+	async verifyToken(
+		{ body }: Request<{}, {}, JwtVerifyDto >,
+		res: Response,
+		next: NextFunction,
+	): Promise<void> {
+		try {
+			this.ok(res, await this.authService.verifyToken(body.token));
+		} catch (e) {
 			return next(e);
 		}
 	}

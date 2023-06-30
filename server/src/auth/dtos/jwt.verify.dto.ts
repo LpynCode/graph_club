@@ -1,3 +1,3 @@
-export class JwtVerifyDto{
+export class JwtVerifyDto {
     token: string;
 }

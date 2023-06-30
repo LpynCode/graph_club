@@ -1,0 +1,42 @@
+.footer {
+	padding: 25px 30px;
+	color: var(--white);
+	background: var(--black);
+	border-top: 1px solid var(--gray-light);
+	position: sticky;
+	bottom: 0;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: auto 1fr auto ;
+	gap:40px;
+}
+
+.play_btn {
+	cursor: pointer;
+	background: none;
+	border: none;
+	margin-left:10px;
+}
+
+.footer a{
+	color: var(--white);
+}
+
+.footer a:hover {
+	color: var(--gray-light);
+}
+
+.audio_info {
+	display: grid;
+	gap:10px;
+	grid-template-columns: 1fr auto;
+	color: var(--gray-light);
+
+}
+
+.audio_progress {
+	grid-column-start: 1;
+	grid-column-end: 4;
+	width: 100% !important;
+}
+

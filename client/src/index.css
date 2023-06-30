@@ -1,55 +1,67 @@
 html,
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
+	margin: 0;
+	height: 100vh;
+	color: var(--white);
+	background: var(--black);
+	font-family: "Noto Sans KR", sans-serif;
+	padding: 0 calc(5px - (100vw - 100%)) 0 0;
+	user-select: none;
 
-  color: var(--white);
-  background: var(--black);
-
-  font-family: "Noto Sans KR", sans-serif;
 }
 
 a {
-  text-decoration: none;
-  color: var(--primary);
+	text-decoration: none;
+	color: var(--primary);
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--primary);
+	border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+	background: var(--primary-hover);
 }
 
 a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .visualyHidden {
-  position: absolute;
-
-  overflow: hidden;
-
-  width: 0;
-  height: 0;
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	height: 0;
 }
 
 :root {
-  --black: #1C2128;
-  --gray-light: #969696;
-  --gray: #2D333B;
-  --gray-dark: #1C2128;
-  --white: #F5F6F8;
-  --primary: #7351F5;
-  --primary-hover: #6344DF;
-  --red-light: #FEA291;
-  --red: #FC836D;
-  --green: #007B48;
-  --green-light: #C8F8E4;
-  --font-family: "Noto Sans KR", sans-serif;
+	--black: #1C2128;
+	--gray-light: #969696;
+	--gray: #2D333B;
+	--gray-hover: #373E47;
+	--gray-dark: #1C2128;
+	--white: #F5F6F8;
+	--primary: #7351F5;
+	--primary-hover: #6344DF;
+	--red-light: #FEA291;
+	--red: #FC836D;
+	--green: #007B48;
+	--green-light: #C8F8E4;
+	--font-family: "Noto Sans KR", sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
 }
 
 

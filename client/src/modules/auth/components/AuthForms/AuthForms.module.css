@@ -12,4 +12,5 @@
 	font-size: 15px;
 	left: 0;
 	color: var(--red);
+	transition: 1s;
 }

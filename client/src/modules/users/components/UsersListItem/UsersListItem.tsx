@@ -15,7 +15,6 @@ const UsersListItem = ({user, ...props}: UsersListItemProps) => {
                     {user.displayName}
                 </Link>
             </div>
-
         </div>
     );
 };

@@ -1,0 +1,35 @@
+.list {
+	display: none;
+}
+
+.opened {
+	display: grid;
+	width: 220px;
+	background: var(--gray);
+	border: 1px solid var(--gray-light);
+	position: absolute;
+	padding: 15px;
+	color: var(--white);
+	text-align: center;
+	gap:5px;
+	border-radius: 5px;
+	right: 0;
+}
+
+.dots_btn {
+	display: flex;
+	cursor: pointer;
+	border: none;
+	background: none;
+}
+
+.dots_btn img {
+	width: 20px;
+	opacity: 0.7;
+}
+
+.dots_btn:hover img {
+	opacity: 1;
+}
+
+

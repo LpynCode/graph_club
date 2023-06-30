@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from "../../../../hooks/redux";
-import {verifyJwt} from "../../authSlice";
+import {verifyToken} from "../../authSlice";
 
 const PrivateRoute = ({ page }: { page: JSX.Element }) => {
-    const { isLoading, isSuccess, isAuthenticated, token } = useAppSelector(
+    const { isLoading, isAuthenticated, token } = useAppSelector(
         (state) => state.auth
     );
     const dispatch = useAppDispatch();
-
     useEffect(() => {
         if(!token) return;
-        dispatch(verifyJwt(token.token));
-    }, [token, dispatch])
+        dispatch(verifyToken(token));
+    }, [dispatch, token])
 
     if(isLoading) {
         return <></>;

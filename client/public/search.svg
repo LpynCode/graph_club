@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
+	<title>icons8-поиск-50</title>
+	<defs>
+		<image  width="43" height="44" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAsAQMAAADGltM7AAAAAXNSR0IB2cksfwAAAAZQTFRFAAAAlpaWYo5mYAAAAAJ0Uk5TAP9bkSK1AAAAiElEQVR4nKXPsQ3EIAwF0I9cULJBWOOKk26llFdd2CArMUpGoExxivOxvUEilIcQNv5AvTC/TRv/SfUgMmSQ3HGS0vAmi625LeTlfHmLhStrCIukA2yRnhPNonU8FK8HMRIH/Pm46sPPLIyi3YLtM1K98rCgchrpb8DTY3M+zajdKIeRHfHD1G5mkznT8l7ZkwAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="4" y="3"/>
+</svg>

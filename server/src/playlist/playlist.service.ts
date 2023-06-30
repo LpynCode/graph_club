@@ -24,4 +24,12 @@ export class PlaylistService implements IPlaylistService {
 	async getPlaylistById(playlistId: number): Promise<PlaylistModel | null> {
 		return this.playlistRepository.getPlaylistById(playlistId);
 	}
+
+	async deleteById(playlistId: number, userId: number): Promise<PlaylistModel | null> {
+		const playlist = await this.playlistRepository.getPlaylistById(playlistId);
+		if (!playlist) return null;
+		const playlistEntity = new Playlist(playlist.authorId, playlist.name, playlist?.description);
+		if (!playlistEntity.authorize(userId)) return null;
+		return this.playlistRepository.deleteById(playlistId);
+	}
 }

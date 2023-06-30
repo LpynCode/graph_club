@@ -24,16 +24,23 @@ export class PlaylistController extends BaseController implements IPlaylistContr
 			},
 			{
 				method: 'get',
-				path: '/:authorId',
+				path: '/user/:authorId',
 				func: this.getAllByUserId,
 				middlewares: [this.authMiddleware],
 			},
 			{
 				method: 'get',
 				path: '/:playlistId',
-				func: this.getPlaylistById,
+				func: this.getPlaylistInfo,
 				middlewares: [this.authMiddleware],
 			},
+			{
+				method: 'delete',
+				path: '/:playlistId',
+				func: this.deleteByPlaylistId,
+				middlewares: [this.authMiddleware]
+			}
+
 		]);
 	}
 
@@ -46,7 +53,7 @@ export class PlaylistController extends BaseController implements IPlaylistContr
 			const userId = Number(req.user.id);
 			const playlist = await this.playlistService.createPlaylist(userId, req.body);
 			if (!playlist) return next(new HttpError(400, 'Ошибка создания'));
-			this.created(res);
+			this.ok(res, playlist);
 		} catch (e) {
 			return next(e);
 		}
@@ -63,12 +70,25 @@ export class PlaylistController extends BaseController implements IPlaylistContr
 		}
 	}
 
-	async getPlaylistById(req: Request, res: Response, next: NextFunction): Promise<void> {
+	async getPlaylistInfo(req: Request, res: Response, next: NextFunction): Promise<void> {
 		try {
 			const playlistId = Number(req.params.playlistId);
-			if (!playlistId) return next(new HttpError(400, 'Некорректный id of playist'));
+			if (!playlistId) return next(new HttpError(400, 'Некорректный id плейлиста'));
 			const playlist = await this.playlistService.getPlaylistById(playlistId);
 			if (!playlist) return next(new HttpError(404, 'Не найден'));
+			this.ok(res, playlist);
+		} catch (e) {
+			return next(e);
+		}
+	}
+
+	async deleteByPlaylistId(req: Request, res: Response, next: NextFunction): Promise<void> {
+		try {
+			const playlistId = Number(req.params.playlistId);
+			const userId = Number(req.user.id);
+			if (!playlistId) return next(new HttpError(400, 'Некорректный id плейлиста'));
+			const playlist = await this.playlistService.deleteById(playlistId, userId);
+			if(!playlist) return next(new HttpError(400, 'Ошибка удаления'));
 			this.ok(res, playlist);
 		} catch (e) {
 			return next(e);

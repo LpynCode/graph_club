@@ -38,6 +38,7 @@ export class UserRepository implements IUserRepository {
 					select: { createdAt: true, photo: { select: { link: true, id: true } } },
 				},
 				posts: true,
+				added_audios: {select: {audio: true}}
 			},
 		});
 	}
@@ -51,6 +52,7 @@ export class UserRepository implements IUserRepository {
 				avatar: {
 					select: { createdAt: true, photo: { select: { link: true, id: true } } },
 				},
+				audios: true
 			},
 		});
 	}

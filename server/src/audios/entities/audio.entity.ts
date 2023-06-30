@@ -11,7 +11,7 @@ export class Audio implements IFilesEntity {
 		private readonly _authorId: number,
 		private readonly _name: string,
 		private readonly _file: UploadedFile,
-		private readonly _playlist: PlaylistModel,
+		private readonly _playlist: PlaylistModel | null | undefined = null,
 	) {
 		this._link = v4();
 	}
@@ -32,12 +32,12 @@ export class Audio implements IFilesEntity {
 		return this._name;
 	}
 
-	get playlistId(): number {
-		return this._playlist.id;
+	get playlistId(): number | null | undefined {
+		return this._playlist?.id;
 	}
 
 	authorize(): boolean {
-		return this._authorId === this._playlist.authorId;
+		return this._authorId === this._authorId;
 	}
 
 	async getPreparedFile(): Promise<Buffer | null> {

@@ -1,6 +1,6 @@
 .list {
-    border: 1px solid var(--gray-light);
-    border-radius: 10px;
-    display: grid;
-    gap:10px;
+	border: 1px solid var(--gray-light);
+	border-radius: 10px;
+	display: grid;
+	gap:10px;
 }

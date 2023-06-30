@@ -20,6 +20,7 @@ model UserModel {
   playlists    PlaylistModel[]
   audios       AudiosModel[]
   avatar       AvatarModel?
+  added_audios AddedAudiosModel[]
 
 
   @@map("users")
@@ -67,7 +68,7 @@ model PlaylistModel {
   description  String?
   author       UserModel      @relation(fields:[authorId], references: [id])
   authorId     Int
-  audios       AudiosModel[]
+  audios    AudiosPlaylistModel[]
 
   @@map("playlists")
 }
@@ -78,10 +79,31 @@ model AudiosModel {
   name         String
   author       UserModel      @relation(fields:[authorId], references: [id])
   authorId     Int
-  playlist     PlaylistModel  @relation(fields:[playlistId], references: [id])
-  playlistId   Int
+  playlists    AudiosPlaylistModel[]
+  addedTo      AddedAudiosModel[]
 
   @@map("audios")
+}
+
+model AudiosPlaylistModel {
+   id           Int            @id   @default(autoincrement())
+   playlist    PlaylistModel  @relation(fields:[playlistId], references: [id], onDelete: Cascade)
+   playlistId  Int
+   audio       AudiosModel    @relation(fields:[audioId], references: [id], onDelete: Cascade)
+   audioId     Int
+
+   @@map("audios_playlist")
+}
+
+model AddedAudiosModel {
+   id           Int            @id   @default(autoincrement())
+   author       UserModel      @relation(fields:[authorId], references: [id])
+   authorId     Int
+   audio        AudiosModel    @relation(fields:[audioId], references: [id], onDelete: Cascade)
+   audioId      Int
+   createdAt    DateTime       @default(now())
+
+   @@map("added_audios")
 }
 
 enum Role {

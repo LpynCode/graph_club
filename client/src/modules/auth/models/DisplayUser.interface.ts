@@ -1,3 +1,5 @@
+import {Audio} from "../../audios/models/audio.interface";
+
 export interface IDisplayUser{
     id: number;
     displayName: string;
@@ -8,5 +10,6 @@ export interface IDisplayUser{
             id: number,
             link: string
         }
-    }
+    },
+    added_audios: Audio[]
 }

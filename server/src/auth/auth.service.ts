@@ -49,9 +49,9 @@ export class AuthService implements IAuthService {
 		return this.userRepository.createUser(userEntity);
 	}
 
-	private generateToken(payload: AuthJwtPayload, secret: string): Promise<string> {
+	private async generateToken(payload: AuthJwtPayload, secret: string): Promise<string> {
 		return new Promise<string>((resolve, reject) => {
-			sign(payload, secret, { algorithm: 'HS256', expiresIn: '1h' }, (err, token) => {
+			sign(payload, secret, { algorithm: 'HS256', expiresIn: '24h' }, (err, token) => {
 				if (err) {
 					reject(err);
 				}
@@ -60,12 +60,14 @@ export class AuthService implements IAuthService {
 		});
 	}
 
-	verifyToken(token: string): boolean {
-		try {
-			const decoded = verify(token, this.configService.get('SECRET_KEY'));
-			return true;
-		} catch (e) {
-			return false;
-		}
+	async verifyToken(token: string): Promise<boolean> {
+		return new Promise<boolean>((resolve, reject) => {
+			verify(token, this.configService.get('SECRET_KEY'), (err, decoded) => {
+				if (err) {
+					resolve(false);
+				}
+				resolve(true);
+			});
+		});
 	}
 }

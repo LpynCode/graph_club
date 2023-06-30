@@ -2,12 +2,13 @@ import { inject, injectable } from 'inversify';
 import { TYPES } from '../types';
 import { IAudiosRepository } from './interfaces/audios.repository.interface';
 import { IAudiosService } from './interfaces/audios.service.interface';
-import { AudiosModel } from '@prisma/client';
+import { AudiosModel, AudiosPlaylistModel, AddedAudiosModel } from '@prisma/client';
 import { AudiosCreateDto } from './dto/audios-create.dto';
 import { Audio } from './entities/audio.entity';
 import { IPlaylistService } from '../playlist/interfaces/playlist.service.interface';
 import { UploadedFile } from 'express-fileupload';
 import { IFilesService } from '../files/interfaces/files.service.interface';
+import { AddToPlaylistDto } from './dto/add-to-playlist.dto';
 
 @injectable()
 export class AudiosService implements IAudiosService {
@@ -17,29 +18,46 @@ export class AudiosService implements IAudiosService {
 		@inject(TYPES.FilesService) private readonly filesService: IFilesService,
 	) {}
 
-	async addAudioToPlaylist(
+	async createAudio(
 		authorId: number,
-		{ name, playlistId }: AudiosCreateDto,
+		{ name }: AudiosCreateDto,
 		file: UploadedFile,
 	): Promise<AudiosModel | null> {
-		const playlist = await this.playlistService.getPlaylistById(playlistId);
-		if (!playlist) return null;
-		const audioEntity = new Audio(authorId, name, file, playlist);
-		if (!audioEntity.authorize()) return null;
+		const audioEntity = new Audio(authorId, name, file);
 		const uploaded = await this.filesService.uploadFile(audioEntity);
 		if (!uploaded) return null;
 		return this.audiosRepository.createAudio(audioEntity);
 	}
 
-	async getAllByPlaylistId(playlistId: number): Promise<AudiosModel[]> {
-		return this.audiosRepository.getAllByPlaylistId(playlistId);
+	async removeAudio(userId: number, audioId: number): Promise<{ id: number } | null> {
+		const audio = await this.audiosRepository.getAddedById(userId, audioId);
+		if (!audio) return null;
+		const {count} = await this.audiosRepository.removeById(userId, audioId);
+		if(count == 1) {
+			return {id: audioId};
+		}
+		return null;
 	}
 
-	async removeAudio(authorId: number, audioId: number): Promise<AudiosModel | null> {
-		const audio = await this.audiosRepository.getById(audioId);
-		if (!audio) return null;
-		if (audioId !== audio.authorId) return null;
-		await this.filesService.removeFile(audio.link);
-		return this.audiosRepository.removeById(audioId);
+	async findAudioByName(name: string, limit: number, offset: number): Promise<AudiosModel[]> {
+		return this.audiosRepository.findByName(name, limit, offset);
+	}
+
+	async addToMy(userId: number, audioId: number): Promise<AddedAudiosModel | null> {
+		const existed = await this.audiosRepository.getAddedById(userId, audioId);
+		if(existed) return null;
+    	return this.audiosRepository.addToMy(userId, audioId);
+	}
+
+	async getAudiosByUserId(
+		userId: number,
+		limit: number,
+		offset: number,
+	): Promise<AddedAudiosModel[]> {
+		return this.audiosRepository.getAudiosByUserId(userId, limit, offset);
+	}
+
+	async addToPlaylist(data: AddToPlaylistDto): Promise<AudiosPlaylistModel | null> {
+		return this.audiosRepository.addToPlaylist(data);
 	}
 }

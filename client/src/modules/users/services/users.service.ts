@@ -1,13 +1,14 @@
 import axios from "axios";
+import $api from "../../../http";
 
 
 const getAllUsers = async () => {
-    const response = await axios.get('http://localhost:8080/users');
+    const response = await $api.get('/users');
     return response;
 }
 
 const getUserById = async (userId: number) => {
-    const response = await axios.get(`http://localhost:8080/users/${userId}`);
+    const response = await $api.get(`/users/${userId}`);
     return response;
 }
 

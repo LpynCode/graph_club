@@ -2,7 +2,7 @@ import React, {FunctionComponent, ReactNode} from 'react';
 import Header from "./Header/Header";
 import {LayoutProps} from "./Layout.props";
 import styles from './Layout.module.css';
-import Footer from "./Footer/Footer";
+import Player from "./Player/Player";
 import Sidebar from "./Sidebar/Sidebar";
 
 const Layout = ({children}: LayoutProps): JSX.Element => {
@@ -13,7 +13,7 @@ const Layout = ({children}: LayoutProps): JSX.Element => {
             <main className={styles.body}>
                 {children}
             </main>
-            <Footer className={styles.footer}/>
+            <Player className={styles.player}/>
         </div>
     );
 };

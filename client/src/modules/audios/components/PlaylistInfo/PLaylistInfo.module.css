@@ -1,0 +1,22 @@
+.playlist_info {
+	display: grid;
+	grid-template-rows: auto 1fr;
+}
+
+h3 {
+	justify-self: center;
+}
+
+.main {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap:20px;
+}
+
+.buttons {
+	display: grid;
+	align-content: start;
+	gap: 10px;
+}
+
+

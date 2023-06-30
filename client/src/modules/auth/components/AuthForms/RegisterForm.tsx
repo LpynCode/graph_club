@@ -1,50 +1,55 @@
 import Input from "../../../../UI/Input/Input";
 import {Button} from "../../../../UI/Button/Button";
 import styles from './AuthForms.module.css';
-import {FC, useState} from "react";
+import {FC, useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import {IRegisterForm, IRegisterSentResponse} from "./RegisterForm.interface";
-import axios from "axios";
+import {IRegisterUser} from "../../models/RegisterUser.interface";
+import {useAppDispatch, useAppSelector} from "../../../../hooks/redux";
+
+import {register, reset} from "../../authSlice";
+
 
 const RegisterForm: FC = () => {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm<IRegisterForm>();
-    const [isSuccess, setIsSuccess] = useState<boolean>(false);
-    const [error, setError] = useState<string>();
+    const { register: registerinput, handleSubmit, formState: { errors }, reset: clearForm } = useForm<IRegisterUser>();
+    const { isLoading, errorMessage, isSuccess, isAuthenticated, isError } = useAppSelector(
+        (state) => state.auth
+    );
     const navigate = useNavigate();
-    
-    const onSubmit = async (formData: IRegisterForm) => {
-        try{
-            const {data} = await axios.post<IRegisterSentResponse>('http://localhost:8080/auth/register', formData);
-            console.log(data);
-            if (data.email) {
-                setError('');
-                setIsSuccess(true);
-                navigate('/login');
-                reset();
-            } else {
-                setError('Что-то пошло не так');
-            }
-        } catch(e) {
-            if(axios.isAxiosError(e) && e?.response?.data.message) {
-                setError(e?.response?.data.message);
-            } else {
-                setError('Что-то пошло не так');
-            }
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        if (isSuccess) {
+            dispatch(reset());
+            clearForm();
+            navigate('/login')
         }
+    }, [isSuccess, dispatch]);
+
+    useEffect(() => {
+        if (!isAuthenticated) return;
+        navigate('/');
+    }, [isAuthenticated]);
+
+    useEffect(() => {
+        dispatch(reset())
+    }, [navigate])
+    
+    const onSubmit = async (formData: IRegisterUser) => {
+        dispatch(register(formData));
     };
 
     return (
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-            {error && <span role="alert" className={styles.errorMessage}>{error}</span>}
+            {isError && <span role="alert" className={styles.errorMessage}>{errorMessage}</span>}
             <Input
-                {...register('displayName', { required: { value: true, message: 'Поле обязательно для заполнения' } })}
+                {...registerinput('displayName', { required: { value: true, message: 'Поле обязательно для заполнения' } })}
                 placeholder='Имя'
                 error = {errors.displayName}
                 aria-invalid={!!errors.displayName}
             />
             <Input
-                {...register('email', {
+                {...registerinput('email', {
                     required: { value: true, message: 'Поле обязательно для заполнения' },
                     pattern: {
                         value: /\S+@\S+\.\S+/,
@@ -56,7 +61,7 @@ const RegisterForm: FC = () => {
                 aria-invalid={!!errors.email}
             />
             <Input
-                {...register('password', {
+                {...registerinput('password', {
                     required: { value: true, message: 'Поле обязательно для заполнения' },
                     maxLength: {value: 30, message: 'Пароль должень быть меньше 30 символов'},
                     minLength: {value: 6, message: 'Пароль должень быть больше 6 символов'}

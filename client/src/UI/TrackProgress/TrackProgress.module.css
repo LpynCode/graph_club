@@ -1,0 +1,60 @@
+.hint {
+	display: none;
+}
+
+.handler {
+	display: none;
+	border-radius: 50%;
+	position: absolute;
+	z-index: 2;
+	background: var(--primary-hover);
+}
+
+.active .handler {
+	display: block;
+	width:8px;
+	height: 8px;
+	top:-2px;
+	transform: translateX(-4px);
+}
+
+.slider {
+	width: 80px;
+	position: relative;
+	cursor: pointer;
+	height: 10px;
+}
+
+.active .hint {
+	display: block;
+	position: absolute;
+	font-size: 10px;
+	transform: translateX(-12px);
+	pointer-events: none;
+	top: -22px;
+	background: var(--gray-light);
+	border-radius: 2px;
+	padding: 3px;
+	color: var(--white);
+}
+
+.slide {
+	height: 3px;
+	width: 100%;
+	background: var(--gray-light);
+	position: relative;
+	cursor: pointer;
+	border-radius: 25px;
+	top: 3px;
+}
+
+.amount {
+	height: 100%;
+	background: var(--primary);
+	position: absolute;
+	z-index: 1;
+	border-radius: 25px;
+}
+
+
+

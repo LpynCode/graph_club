@@ -11,14 +11,14 @@ import {Link} from "react-router-dom";
 const Header = ({className, ...props}: HeaderProps) => {
     const dispatch = useAppDispatch();
     const {user} = useAppSelector((state) => state.auth)
-    console.log(user)
     return (
         <header className={cn(className, styles.header)} {...props}>
             <Link to={'/'} className={styles.logo}>
-                <img src='logo.png' alt='logo' height='40px' />
+                <img src='http://localhost:5173/public/logo.png' alt='logo' height='40px' />
                 <h2>GraphClub</h2>
             </Link>
-            <Link to={`/${user.id}`}>
+            <div></div>
+            <Link to={`/${user.id}`} style={{display: 'flex'}}>
                 <Avatar size={"40px"} link={user.avatar?.photo.link}/>
             </Link>
             <Button appearance={'ghost'} onClick={() => dispatch(logout())}>Logout</Button>

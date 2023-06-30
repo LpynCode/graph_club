@@ -15,11 +15,15 @@ export class PlaylistRepository implements IPlaylistRepository {
 		});
 	}
 
+	async deleteById(id: number): Promise<PlaylistModel | null> {
+		return this.prismaService.client.playlistModel.delete({where: {id}});
+	}
+
 	async getAllByAuthorId(authorId: number): Promise<PlaylistModel[]> {
 		return this.prismaService.client.playlistModel.findMany({ where: { authorId } });
 	}
 
 	async getPlaylistById(playlistId: number): Promise<PlaylistModel | null> {
-		return this.prismaService.client.playlistModel.findFirst({ where: { id: playlistId } });
+		return this.prismaService.client.playlistModel.findFirst({ where: { id: playlistId }, include: {audios: {select: {audio: true}} }});
 	}
 }

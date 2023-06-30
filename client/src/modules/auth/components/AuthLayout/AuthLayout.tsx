@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react';
 import styles from './AuthLayout.module.css';
-import Footer from "../../../shared/Layout/Footer/Footer";
+import Player from "../../../shared/Layout/Player/Player";
 
 const AuthLayout = ({children}: {children: ReactNode }) => {
     return (

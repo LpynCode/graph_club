@@ -2,7 +2,7 @@ export class Playlist {
 	constructor(
 		private readonly _authorId: number,
 		private readonly _name: string,
-		private readonly _description?: string,
+		private readonly _description?: string | null,
 	) {}
 
 	get authorId(): number {
@@ -13,7 +13,11 @@ export class Playlist {
 		return this._name;
 	}
 
-	get description(): string | undefined {
+	get description(): string | undefined | null {
 		return this._description;
+	}
+
+	public authorize(userId: number): boolean {
+		return this._authorId === userId;
 	}
 }

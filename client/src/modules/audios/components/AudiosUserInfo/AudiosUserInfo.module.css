@@ -1,0 +1,50 @@
+.block {
+	display: grid;
+	gap:10px;
+}
+
+.header {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap:10px;
+}
+
+.audios_list {
+	grid-template-columns: 1fr 1fr;
+}
+
+.search_panel {
+	display: grid;
+	grid-template-columns:1fr;
+	align-items: center;
+	gap:10px;
+	position: relative;
+}
+
+.search_input {
+	display: flex;
+	border: 1px solid var(--gray-light);
+	border-radius: 5px;
+	overflow: hidden;
+	height: 100%;
+}
+
+.reset_btn {
+	display: flex;
+	border: none;
+	background: none;
+	position: absolute;
+	right: 0;
+	cursor: pointer;
+}
+
+.reset_btn img {
+	width: 25px;
+	transform: rotate(45deg);
+	opacity: 0.5;
+}
+
+.reset_btn:hover img {
+	opacity: 1;
+}
+

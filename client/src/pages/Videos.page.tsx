@@ -4,7 +4,7 @@ import {withLayout} from "../modules/shared/Layout/Layout";
 const VideosPage = () => {
     return (
         <div>
-            Видеозаписи
+            Порнозаписи
         </div>
     );
 };

@@ -1,0 +1,42 @@
+.card {
+	display: grid;
+	font-size: 120px;
+	justify-content: center;
+	align-content: center;
+	color: var(--gray-light);
+}
+
+.popup_bg {
+	display: flex;
+	position: fixed;
+	inset:0;
+	align-items: center;
+	justify-content: center;
+	background: rgb(0 0 0 / 50%);
+	z-index: 3;
+}
+
+.popup {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	width: 60%;
+	height: 80%;
+	background: var(--gray);
+	border-radius: 20px;
+	padding: 30px;
+	text-align: center;
+}
+
+.form {
+	height: 100%;
+	width: 100%;
+	display: grid;
+	grid-template-rows:1fr auto ;
+}
+
+.inputs {
+	display: flex;
+	flex-direction: column;
+	gap:15px;
+}
+

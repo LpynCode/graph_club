@@ -7,18 +7,22 @@ import AudiosPage from "./pages/Audios.page";
 import VideosPage from "./pages/Videos.page";
 import UsersPage from "./pages/Users.page";
 import UserPage from "./pages/User.page";
+import PlaylistInfoPage from "./pages/PlaylistInfo.page";
+import {useAppDispatch} from "./hooks/redux";
+import {useEffect} from "react";
 
 function App() {
   return (
       <BrowserRouter>
           <Routes>
               <Route path={'/'} element={<PrivateRoute page={<HomePage/>}/>}/>
-              <Route path={'/audios'} element={<PrivateRoute page={<AudiosPage/>}/>}/>
+              <Route path={'/audios/:userId'} element={<PrivateRoute page={<AudiosPage/>}/>}/>
               <Route path={'/login'} element={<LoginPage/>}/>
               <Route path={'/register'} element={<RegisterPage/>}/>
               <Route path={'/videos'} element={<PrivateRoute page={<VideosPage/>}/>}/>
               <Route path={'/users'} element={<PrivateRoute page={<UsersPage/>}/>}/>
               <Route path={'/:userId'} element={<PrivateRoute page={<UserPage/>}/>}/>
+              <Route path={'/playlist/:playlistId'} element={<PrivateRoute page={<PlaylistInfoPage/>}/>}/>
           </Routes>
       </BrowserRouter>
   );

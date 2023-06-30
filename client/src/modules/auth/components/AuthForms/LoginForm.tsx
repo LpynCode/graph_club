@@ -9,11 +9,11 @@ import {useAppDispatch, useAppSelector} from "../../../../hooks/redux";
 import {login, reset} from "../../authSlice";
 
 const LoginForm: FC = () => {
-    const { register, control, handleSubmit, formState: { errors }, reset: clearForm, clearErrors } = useForm<ILoginUser>();
+    const { register, handleSubmit, formState: { errors }, reset: clearForm } = useForm<ILoginUser>();
 
     const dispatch = useAppDispatch();
 
-    const { isLoading, isSuccess, isAuthenticated, isError } = useAppSelector(
+    const { errorMessage, isSuccess, isAuthenticated, isError } = useAppSelector(
         (state) => state.auth
     );
 
@@ -26,18 +26,21 @@ const LoginForm: FC = () => {
     }, [isSuccess, dispatch]);
 
     useEffect(() => {
+        dispatch(reset())
+    }, [navigate])
+
+    useEffect(() => {
         if (!isAuthenticated) return;
         navigate('/');
-    }, [isAuthenticated]);
+    }, [isAuthenticated, navigate]);
+    
     const onSubmit = async (formData: ILoginUser) => {
         dispatch(login(formData));
     };
 
-
-
     return (
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-            {isError && <span role="alert" className={styles.errorMessage}>Ошибка</span>}
+            {isError && <span role="alert" className={styles.errorMessage}>{errorMessage}</span>}
             <Input
                 {...register('email', {
                     required: {value: true, message: 'Поле обязательно для заполнения'},

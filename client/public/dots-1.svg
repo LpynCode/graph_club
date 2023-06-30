@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+	<title>free-icon-dots-3426508</title>
+	<defs>
+		<image  width="400" height="81" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAABRAQMAAADGsmIqAAAAAXNSR0IB2cksfwAAAAZQTFRFAAAAlpaWYo5mYAAAAAJ0Uk5TAP9bkSK1AAABHElEQVR4nO2XSw6DMAxEg1hkyRFyFB8tHI2jcIQuu6jqkqYu+agZYakRC7wavdEgMFHiGLMVPUxVbWaZ19IFjJirRwLGW5V2m41BFm8B2BTkLbcBoyCLFwfMB/nM7TYb+F1z6gI2RrlUX/qb2SjX1AZsijJrD2AuyntqA0ZRZh0FzEeZdRQw/lRqt9kgct5dwBSRUeSy24BZketuA6aITCKTXw2YIuJEJqsDMEWERCYLCrA+ES8yWbaA9Ynwt3YbsCtyRa7I2SJe1Nl2GBJ5tj3ZifzrkdTneO0zKihmGEVEMVwppj7NbElRHplgXZRH5mRFRDHzK24WivuLqX8BZFT1EzJXNQcyWzUHsqH6Uszo+B1ZcRM3/lm6LfYCvwJ93AJULxIAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="56" y="217"/>
+</svg>

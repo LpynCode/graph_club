@@ -1,4 +1,6 @@
+import {IsString} from "class-validator";
+
 export class AudiosCreateDto {
-	playlistId: number;
+	@IsString()
 	name: string;
 }

@@ -64,6 +64,7 @@ export const usersSlice = createSlice({
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.userById= action.payload?.data || null;
+                state.userById.audios = action.payload?.data?.added_audios.map(el => el.audio);
             })
             .addCase(getUserById.rejected, (state) => {
                 state.isLoading = false;
