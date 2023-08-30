@@ -3,7 +3,7 @@ import {useAppSelector} from "../hooks/redux";
 
 const HomePage = (): JSX.Element=> {
     return (
-        <div>Алкаша страница</div>
+        <div></div>
     );
 };
 

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="47e58966-c3ca-493f-a736-83d6f8f2023a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Home.page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Home.page.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2QSlLlDV4SNISKI3k1DKjAoAtmX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/lapyn/Documents/WEB/graph_club/client/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;C:\\Users\\lapyn\\Documents\\WEB\\graph_club\\client\\node_modules\\stylelint&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.typescriptcompiler&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\lapyn\\Documents\\WEB\\graph_club\\client\\node_modules\\typescript\\lib&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lapyn\Documents\WEB\graph_club\client\public" />
+      <recent name="C:\Users\lapyn\Documents\WEB\graph_shop\server\src\audios" />
+      <recent name="C:\Users\lapyn\Documents\WEB\graph_shop\client\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lapyn\Documents\WEB\graph_club\client\public" />
+      <recent name="C:\Users\lapyn\Documents\WEB\graph_club\client\src\modules\audios\models" />
+      <recent name="C:\Users\lapyn\Documents\WEB\graph_shop\client\src\modules\users\components\UsersListItem" />
+      <recent name="C:\Users\lapyn\Documents\WEB\graph_shop\client\src\modules\users\components\UsersList" />
+      <recent name="C:\Users\lapyn\Documents\WEB\graph_shop\server\src\user\entities" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="47e58966-c3ca-493f-a736-83d6f8f2023a" name="Changes" comment="" />
+      <created>1685354810070</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685354810070</updated>
+      <workItem from="1685354811960" duration="17362000" />
+      <workItem from="1685518347114" duration="5426000" />
+      <workItem from="1685546829055" duration="2692000" />
+      <workItem from="1685549597407" duration="10941000" />
+      <workItem from="1685569164252" duration="292000" />
+      <workItem from="1685569476117" duration="4687000" />
+      <workItem from="1685641104160" duration="1074000" />
+      <workItem from="1685703293414" duration="7124000" />
+      <workItem from="1685721472178" duration="696000" />
+      <workItem from="1685727525801" duration="6690000" />
+      <workItem from="1685755771682" duration="1595000" />
+      <workItem from="1685758265457" duration="818000" />
+      <workItem from="1685777063715" duration="12752000" />
+      <workItem from="1685824922013" duration="5388000" />
+      <workItem from="1686489099701" duration="608000" />
+      <workItem from="1686655243190" duration="938000" />
+      <workItem from="1686785351808" duration="15000" />
+      <workItem from="1686785436690" duration="213000" />
+      <workItem from="1686785800485" duration="2659000" />
+      <workItem from="1686859711382" duration="6983000" />
+      <workItem from="1686924760129" duration="37740000" />
+      <workItem from="1687003556228" duration="20047000" />
+      <workItem from="1687215625314" duration="219000" />
+      <workItem from="1687552967248" duration="23683000" />
+      <workItem from="1687617658190" duration="1243000" />
+      <workItem from="1687722106028" duration="15264000" />
+      <workItem from="1687794918735" duration="10413000" />
+      <workItem from="1687812116295" duration="4373000" />
+      <workItem from="1687820852210" duration="6576000" />
+      <workItem from="1687830698529" duration="6817000" />
+      <workItem from="1687843688123" duration="5047000" />
+      <workItem from="1687876664261" duration="19587000" />
+      <workItem from="1688052994462" duration="11354000" />
+      <workItem from="1688237631157" duration="147000" />
+      <workItem from="1688338255311" duration="1843000" />
+      <workItem from="1688817025073" duration="549000" />
+      <workItem from="1693225044926" duration="159000" />
+      <workItem from="1693399333371" duration="22000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/server/tests/app.e2e-spec.js" />
+        <option value="$PROJECT_DIR$/server/tests/app.e2e-spec.js.map" />
+        <option value="$PROJECT_DIR$/server/tests/test.constants.js" />
+        <option value="$PROJECT_DIR$/server/tests/test.constants.js.map" />
+        <option value="$PROJECT_DIR$/server/jest.config.js" />
+        <option value="$PROJECT_DIR$/server/jest.config.js.map" />
+        <option value="$PROJECT_DIR$/server/jest.e2e.config.js" />
+        <option value="$PROJECT_DIR$/server/jest.e2e.config.js.map" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
